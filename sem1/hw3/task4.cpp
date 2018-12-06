@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cmath>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 int numberOfMatchingElements(int arr1[], int arr2[], int length) {
@@ -41,14 +42,14 @@ int main() {
 		numbers[0] = rand() % 10;
 	} while (numbers[0] == 0);
 
-	bool usedNumbers[10] = { 0 };
-	usedNumbers[numbers[0]] = 1;
+	bool NumberHadBeenUsed[10] = { 0 };
+	NumberHadBeenUsed[numbers[0]] = 1;
 	int k = 1;
 	do {
 		int y = rand() % 10;
-		if (usedNumbers[y] == 0) {
+		if (NumberHadBeenUsed[y] == 0) {
 			numbers[k] = y;
-			usedNumbers[y] = 1;
+			NumberHadBeenUsed[y] = 1;
 			k++;
 		}
 	} while (k != length);
@@ -58,7 +59,7 @@ int main() {
 
 
 
-	while (bulls != length) {   
+	while (bulls != length) {
 		int bulls = 0;
 		int cows = 0;
 
