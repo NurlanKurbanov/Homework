@@ -4,37 +4,44 @@
 #include <fstream>
 #include <string>
 using namespace std;
+int const maxStringLength = 100;
 
-int numberOfNonEmptyLines() {
 
-	ifstream file("doc.txt");
-	string line;
-	int k = 0;
+int numberOfNonEmptyLines(const char *path) {
+	FILE *file = fopen(path, "rt");
 
-	while (getline(file, line)) {
-		bool isEmpty = true;
-
-		if (line[0] == '\n')
-			isEmpty = true;
-		else {
-			for (unsigned int i = 0; i < line.size(); i++) {
-				if (line[i] != ' ')
-					isEmpty = false;
-			}
-		}
-		if (!isEmpty)
-			k++;
+	if (file == NULL) {
+		printf("file is empty");
+		return -1;
 	}
+	else {
+		char line[maxStringLength];
+		int NonEmptyLines = 0;
 
-	return k;
-	file.close();
+		while (fgets(line, maxStringLength, file)) {
+			bool isEmpty = true;
+
+			if (line[0] == '\n')
+				isEmpty = true;
+			else {
+				for (unsigned int i = 0; i < strlen(line); i++) {
+					if (line[i] != ' ')
+						isEmpty = false;
+				}
+			}
+			if (!isEmpty)
+				NonEmptyLines++;
+		}
+		return NonEmptyLines;
+	}
+	fclose(file);
 }
 
-int main() {
 
+int main() {
+	const char path[] = "doc.txt";
 	printf("number of non-empty lines:\t");
-	printf("%d", numberOfNonEmptyLines());
-	
+	printf("%d", numberOfNonEmptyLines("doc.txt"));
 	scanf("%%");
 	return 0;
 }
