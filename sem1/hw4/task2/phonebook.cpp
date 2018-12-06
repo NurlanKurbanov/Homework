@@ -1,12 +1,9 @@
 #include "phonebook.h"
 
-List *createList() {
-	return new List{ nullptr };
-}
 
-
-List *fillTheList() {
-	ifstream fin("doc.txt");
+List *fillThePhonebook(const char *path) 
+{
+	ifstream fin(path);
 	List *phonebook = createList();
 
 	while (!fin.eof()) {
@@ -20,19 +17,9 @@ List *fillTheList() {
 	return phonebook;
 }
 
-void add(List *list, char name1[], char number1[]) {
-	ListElement *current = new ListElement;
 
-	for (unsigned int i = 0; i <= strlen(name1); i++)
-		current->name[i] = name1[i];
-	for (unsigned int i = 0; i <= strlen(number1); i++)
-		current->number[i] = number1[i];
-
-	current->next = list->first;
-	list->first = current;
-}
-
-char *findNumber(List *list, char name1[]) {
+char *findNumber(List *list, char name1[]) 
+{
 	ListElement *current = list->first;
 	while (strcmp(current->name, name1) != 0 && current->next) {
 		current = current->next;
@@ -43,7 +30,9 @@ char *findNumber(List *list, char name1[]) {
 		return nullptr;
 }
 
-char *findName(List *list, char number1[]) {
+
+char *findName(List *list, char number1[])
+{
 	ListElement *current = list->first;
 	while (strcmp(current->number, number1) != 0 && current->next) {
 		current = current->next;
@@ -54,23 +43,12 @@ char *findName(List *list, char number1[]) {
 		return nullptr;
 }
 
-void saveList(List *list) {
-	ofstream fout("doc.txt");
-
-	ListElement *current = list->first;
-	while (current) {
-		fout << current->name << "	" << current->number << endl;
-		current = current->next;
-	}
-	fout.close();
+void savePhonebook(List *list)
+{
+	saveList(list);
 }
 
-void deleteList(List *list) {
-	ListElement *current = list->first;
-	while (current) {
-		ListElement *next = current->next;
-		delete current;
-		current = next;
-	}
-	delete list;
+void deletePhonebook(List *list)
+{
+	deleteList(list);
 }

@@ -3,6 +3,7 @@
 #include "phonebook.h"
 
 int main() {
+	const char path[] = "doc.txt";
 	printf("0 - exit\n");
 	printf("1 - add note\n");
 	printf("2 - find a phone by name\n");
@@ -10,8 +11,8 @@ int main() {
 	printf("4 - save current data to file\n");
 
 
-	List *phonebook = fillTheList();
-	printf("enter the number\t");
+	List *phonebook = fillThePhonebook(path);
+	printf("Choose a number\t");
 	int k = 0;
 	scanf("%d", &k);
 
@@ -64,7 +65,7 @@ int main() {
 		}
 
 		case 4: {
-			saveList(phonebook);
+			savePhonebook(phonebook);
 			printf("Changes saved\n");
 			break;
 		}
@@ -73,11 +74,11 @@ int main() {
 			printf("Error. You entered a wrong number\n");
 		}
 
-		printf("enter the number\t");
+		printf("Choose a number\t");
 		scanf("%d", &k);
 	}
 
-	deleteList(phonebook);
+	deletePhonebook(phonebook);
 	return 0;
 }
 

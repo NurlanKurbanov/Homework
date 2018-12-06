@@ -1,5 +1,17 @@
-NK	88005553535
-Nurlan_K 342
-Nurl 2229
-Nur 4675
-Nurlan 123
+Boris	909
+	
+Khabib	111
+
+Nurlan	234
+
+Nur	88005553535
+
+Nurl	98765
+
+Nurlan_K	111
+
+NK	8911
+
+Putin	345
+
+Kebab	77707
