@@ -14,4 +14,6 @@ List *createList();
 void add(List *list, int number);
 void print(List *list);
 int size(List *list);
+void deleteList(List *list);
 
+void killEach(int m, List *list);

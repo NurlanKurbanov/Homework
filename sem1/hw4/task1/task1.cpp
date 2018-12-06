@@ -19,19 +19,11 @@ int main()
 	print(army);
 
 	printf("Survived:\t");
-	int i = 0;
-	while (size(army) != 1) {
-		ListElement *current = army->first;
-		for (int i = 0; i < m - 2; i++)
-			current = current->next;
-		ListElement *temp = current->next;
-		current->next = temp->next;
-		delete temp;
-		army->first = current->next;
-	}
-
+	killEach(m, army);
 	print(army);
 
+
+	deleteList(army);
 	scanf("%d", &n);
 	return 0;
 }
