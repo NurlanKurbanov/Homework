@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <fstream>
 #include <string>
+#include <cstring>
 using namespace std;
 
 const int maxSize = 50;
