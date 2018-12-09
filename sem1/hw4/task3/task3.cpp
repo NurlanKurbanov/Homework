@@ -3,6 +3,8 @@
 #include <cstdio>
 #include <fstream>
 #include <string>
+#include <string.h>
+#include <cstring>
 using namespace std;
 int const maxStringLength = 100;
 
@@ -14,34 +16,33 @@ int numberOfNonEmptyLines(const char *path) {
 		printf("file is empty");
 		return -1;
 	}
-	else {
-		char line[maxStringLength];
-		int NonEmptyLines = 0;
 
-		while (fgets(line, maxStringLength, file)) {
-			bool isEmpty = true;
+	char line[maxStringLength];
+	int nonEmptyLines = 0;
+	while (fgets(line, maxStringLength, file)) {
+		bool isEmpty = true;
 
-			if (line[0] == '\n')
-				isEmpty = true;
-			else {
-				for (unsigned int i = 0; i < strlen(line); i++) {
-					if (line[i] != ' ')
-						isEmpty = false;
-				}
+		if (line[0] == '\n')
+			isEmpty = true;
+		else {
+			for (unsigned int i = 0; i < strlen(line); i++) {
+				if (line[i] != ' ')
+					isEmpty = false;
 			}
-			if (!isEmpty)
-				NonEmptyLines++;
 		}
-		return NonEmptyLines;
+		if (!isEmpty)
+			nonEmptyLines++;
 	}
+
 	fclose(file);
+	return nonEmptyLines;
 }
 
 
 int main() {
 	const char path[] = "doc.txt";
 	printf("number of non-empty lines:\t");
-	printf("%d", numberOfNonEmptyLines("doc.txt"));
+	printf("%d", numberOfNonEmptyLines(path));
 	scanf("%%");
 	return 0;
 }
