@@ -15,5 +15,7 @@ void add(List *list, int number);
 void print(List *list);
 int size(List *list);
 void deleteList(List *list);
-
-void killEach(int m, List *list);
+void deleteElement(List *list, int number);
+ListElement *returnListFirstElement(List *list);
+ListElement *nextElement(ListElement *current);
+int returnElementNumber(ListElement* current);

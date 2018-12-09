@@ -61,6 +61,7 @@ void print(List *list)
 	printf("%d\n", current->number);
 }
 
+
 void deleteList(List *list) 
 {
 	ListElement *current = list->first;
@@ -74,16 +75,39 @@ void deleteList(List *list)
 	delete list;
 }
 
-void killEach(int m, List *list)
+
+void deleteElement(List *list, int number)
 {
-	int i = 0;
-	while (size(list) != 1) {
-		ListElement *current = list->first;
-		for (int i = 0; i < m - 2; i++)
+	ListElement *current = list->first;
+	if (current->number == number) {
+		while (current->next != list->first)
 			current = current->next;
-		ListElement *temp = current->next;
-		current->next = temp->next;
-		delete temp;
+		current->next = list->first->next;
+		delete list->first;
 		list->first = current->next;
+		return;
 	}
+	while (current->next->number != number)
+		current = current->next;
+
+	ListElement *temp = current->next;
+	current->next = temp->next;
+	delete temp;
+}
+
+
+ListElement *returnListFirstElement(List *list)
+{
+	return list->first;
+}
+
+
+ListElement *nextElement(ListElement *current)
+{
+	return current->next;
+}
+
+int returnElementNumber(ListElement* current)
+{
+	return current->number;
 }

@@ -15,11 +15,28 @@ int main()
 	List *army = createList();
 	for (int i = 0; i < n; i++)
 		add(army, i);
-
 	print(army);
 
+	ListElement *current = returnListFirstElement(army);
+	int temp = 0;
+
+	int step = 1;
+	while (true) {
+		if (size(army) == 1)
+			break;
+		if (step == m) {
+			temp = returnElementNumber(current);
+			current = nextElement(current);
+			deleteElement(army, temp);
+			step = 1;
+		}
+		else {
+			current = nextElement(current);
+			step++;
+		}
+	}
+
 	printf("Survived:\t");
-	killEach(m, army);
 	print(army);
 
 
