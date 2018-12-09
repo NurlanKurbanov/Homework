@@ -84,5 +84,7 @@ int main() {
 	printf("\n");
 	printf("YOU WIN\n");
 	scanf("%d", &length);
+	delete[] inputValues;
+	delete[] numbers;
 	return 0;
 }
