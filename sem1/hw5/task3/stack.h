@@ -21,4 +21,3 @@ void push(Stack *stack, char value);
 void pop(Stack *stack);
 void deleteStack(Stack *stack);
 char returnTop(Stack *stack);
-bool isEmpty(Stack *stack);
