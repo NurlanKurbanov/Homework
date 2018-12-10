@@ -24,4 +24,3 @@ void push(Stack *stack, StackElementType);
 void pop(Stack *stack);
 void deleteStack(Stack *stack);
 StackElementType returnTop(Stack *stack);
-bool isEmpty(Stack *stack);

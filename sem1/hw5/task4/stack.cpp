@@ -25,6 +25,10 @@ void push(Stack *stack, StackElementType value)
 
 void pop(Stack *stack)
 {
+	if (isEmpty(stack)) {
+		printf("Error. Stack is empty");
+		return;
+	}
 	StackElement *current = stack->top;
 	stack->top = stack->top->previous;
 	delete current;
