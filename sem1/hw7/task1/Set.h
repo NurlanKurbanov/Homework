@@ -1,13 +1,27 @@
 #pragma once
-#include "binTree.h"
+#include <cstdio>
+using namespace std;
 
 typedef int ElementType;
 
- Tree *createSet();
- void addToSet(Tree *&set, ElementType value);
- void deleteSetElement(Tree *&set, ElementType value);
- bool existAtSet(Tree *set, ElementType value);
- void ascendingSetPrint(Tree *set);
- void descendingSetPrint(Tree *set);
- void printSet(Tree *set);
- void deleteSet(Tree *&set);
+struct SetNode
+{
+	int value;
+	SetNode *lowerElement; 
+	SetNode *greaterElement;
+};
+
+struct Set
+{
+	SetNode *root;
+};
+
+
+Set *createSet();
+void addToSet(Set *set, ElementType x);
+bool exist(Set *set, ElementType x);
+void deleteFromSet(Set *set, ElementType x);
+void printSet(Set *set);
+void ascendingSetPrint(Set *set);
+void descendingSetPrint(Set *set);
+void deleteSet(Set *set);
