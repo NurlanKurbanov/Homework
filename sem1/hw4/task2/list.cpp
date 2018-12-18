@@ -2,16 +2,16 @@
 
 List *createList()
 {
-	return new List{ nullptr };
+	return new List{nullptr};
 }
 
 
-void add(List *list, char name1[], char number1[])
+void add(List *list, char name[], char number[])
 {
 	ListElement *current = new ListElement;
 
-	strcpy(current->name,name1);
-	strcpy(current->number, number1);
+	strcpy(current->name,name);
+	strcpy(current->number, number);
 	current->next = list->first;
 	list->first = current;
 }

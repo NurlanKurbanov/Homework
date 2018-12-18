@@ -2,7 +2,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include <fstream>
-#include <string>
+#include <string.h>
 #include <cstring>
 using namespace std;
 
@@ -19,6 +19,6 @@ struct List {
 };
 
 List *createList();
-void add(List *list, char name1[], char number1[]);
+void add(List *list, char name[], char number[]);
 void saveList(List *list);
 void deleteList(List *list);

@@ -1,17 +1,19 @@
-Boris	909
+Tesla	369
 	
-Khabib	111
-
-Nurlan	234
-
-Nur	88005553535
-
-Nurl	98765
-
-Nurlan_K	111
-
-NK	8911
+Kebab	77707
 
 Putin	345
 
-Kebab	77707
+NK	8911
+
+Nurlan_K	111
+
+Nurl	98765
+
+Nur	88005553535
+
+Nurlan	234
+
+Khabib	111
+
+Boris	909

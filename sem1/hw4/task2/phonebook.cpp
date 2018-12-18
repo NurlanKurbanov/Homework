@@ -1,7 +1,7 @@
 #include "phonebook.h"
 
 
-List *fillThePhonebook(const char *path) 
+Phonebook *fillThePhonebook(const char *path) 
 {
 	ifstream fin(path);
 	List *phonebook = createList();
@@ -18,37 +18,37 @@ List *fillThePhonebook(const char *path)
 }
 
 
-char *findNumber(List *list, char name1[]) 
+char *findNumber(Phonebook *phonebook, char name[])
 {
-	ListElement *current = list->first;
-	while (strcmp(current->name, name1) != 0 && current->next) {
+	ListElement *current = phonebook->first;
+	while (strcmp(current->name, name) != 0 && current->next) {
 		current = current->next;
 	}
-	if (strcmp(current->name, name1) == 0)
+	if (strcmp(current->name, name) == 0)
 		return current->number;
 	else
 		return nullptr;
 }
 
 
-char *findName(List *list, char number1[])
+char *findName(Phonebook *phonebook, char number[])
 {
-	ListElement *current = list->first;
-	while (strcmp(current->number, number1) != 0 && current->next) {
+	ListElement *current = phonebook->first;
+	while (strcmp(current->number, number) != 0 && current->next) {
 		current = current->next;
 	}
-	if (strcmp(current->number, number1) == 0)
+	if (strcmp(current->number, number) == 0)
 		return current->name;
 	else
 		return nullptr;
 }
 
-void savePhonebook(List *list)
+void savePhonebook(Phonebook *list)
 {
 	saveList(list);
 }
 
-void deletePhonebook(List *list)
+void deletePhonebook(Phonebook *list)
 {
 	deleteList(list);
 }

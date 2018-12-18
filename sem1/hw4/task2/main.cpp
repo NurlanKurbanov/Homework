@@ -11,7 +11,7 @@ int main() {
 	printf("4 - save current data to file\n");
 
 
-	List *phonebook = fillThePhonebook(path);
+	Phonebook *phonebook = fillThePhonebook(path);
 	printf("Choose a number\t");
 	int k = 0;
 	scanf("%d", &k);
