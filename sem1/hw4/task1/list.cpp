@@ -111,3 +111,20 @@ int returnElementNumber(ListElement* current)
 {
 	return current->number;
 }
+
+void shiftList(List *list)
+{
+	ListElement *current = list->first;
+	list->first = current->next;
+}
+
+void deleteListFirstElement(List *list)
+{
+	ListElement *current = list->first;
+
+	while (current->next != list->first)
+		current = current->next;
+	current->next = list->first->next;
+	delete list->first;
+	list->first = current->next;
+}

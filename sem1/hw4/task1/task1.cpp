@@ -17,21 +17,16 @@ int main()
 		add(army, i);
 	print(army);
 
-	ListElement *current = returnListFirstElement(army);
-	int temp = 0;
-
 	int step = 1;
 	while (true) {
 		if (size(army) == 1)
 			break;
 		if (step == m) {
-			temp = returnElementNumber(current);
-			current = nextElement(current);
-			deleteElement(army, temp);
+			deleteListFirstElement(army);
 			step = 1;
 		}
 		else {
-			current = nextElement(current);
+			shiftList(army);
 			step++;
 		}
 	}

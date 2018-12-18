@@ -16,6 +16,5 @@ void print(List *list);
 int size(List *list);
 void deleteList(List *list);
 void deleteElement(List *list, int number);
-ListElement *returnListFirstElement(List *list);
-ListElement *nextElement(ListElement *current);
-int returnElementNumber(ListElement* current);
+void shiftList(List *list);
+void deleteListFirstElement(List *list);
