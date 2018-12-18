@@ -9,11 +9,9 @@ int main() {
 	printf("Enter the expression:\t");
 	fgets(expression, maxLength, stdin);
 	int lengthOfExpression = strlen(expression);
-	Stack *stack1 = createStack();
+	
+	calc(expression, lengthOfExpression);
 
-	calc(expression, lengthOfExpression, stack1);
-
-	printf("%d", returnTop(stack1));
 	scanf("%%");
 	delete[] expression;
 	return 0;

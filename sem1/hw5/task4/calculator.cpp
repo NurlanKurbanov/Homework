@@ -1,4 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "calculator.h"
+
 
 int type(char symbol) 
 {
@@ -10,6 +12,7 @@ int type(char symbol)
 		return 3;
 	return -1;
 }
+
 
 int operation(char symbol, int a, int b) 
 {
@@ -25,8 +28,9 @@ int operation(char symbol, int a, int b)
 }
 
 
-void calc(char *expression, int lengthOfExpression, Stack *stack)
+void calc(char *expression, int lengthOfExpression)
 {
+	Stack *stack = createStack();
 	for (int i = 0; i < lengthOfExpression; i++) {
 		switch (type(expression[i]))
 		{
@@ -49,4 +53,5 @@ void calc(char *expression, int lengthOfExpression, Stack *stack)
 		}
 
 	}
+	printf("%d", returnTop(stack));
 }
